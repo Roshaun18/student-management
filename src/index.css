@@ -1,0 +1,24 @@
+:root {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  /* Soft background color so the white card "pops" */
+  background-color: #03132b; 
+  color: #1e293b;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  /* These three lines are the magic for centering */
+  justify-content: center; 
+  align-items: center;     
+  min-height: 100vh;       
+  
+  width: 100vw;
+  overflow-x: hidden;
+}
+
+#root {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}

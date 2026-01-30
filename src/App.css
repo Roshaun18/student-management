@@ -1,0 +1,137 @@
+/* Modern Reset & Background */
+:root {
+  --primary-color: #4f46e5;
+  --secondary-color: #6366f1;
+  --success-color: #22c55e;
+  --danger-color: #ef4444;
+  --warning-color: #f59e0b;
+  --bg-color: #14181c;
+  --text-color: #1e293b;
+}
+
+.container {
+  width: 90%;
+  max-width: 900px;
+  margin: 0; /* Changed from 40px to 0 */
+  padding: 30px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  font-weight: 800;
+  color: var(--primary-color);
+  margin-bottom: 30px;
+  font-size: 2rem;
+}
+
+/* Success Message Alert */
+.alert {
+  background: #dcfce7;
+  color: #166534;
+  padding: 12px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  border: 1px solid #bbf7d0;
+  animation: fadeIn 0.3s ease;
+}
+
+/* Form Styling */
+.input-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 40px;
+  justify-content: center;
+}
+
+input {
+  flex: 1;
+  min-width: 180px;
+  padding: 12px 16px;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 14px;
+  transition: border-color 0.2s;
+}
+
+input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+}
+
+button[type="submit"] {
+  background: var(--primary-color);
+  color: white;
+  font-weight: 600;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+button[type="submit"]:hover {
+  background: var(--secondary-color);
+}
+
+/* Table Styling */
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin-top: 20px;
+}
+
+th {
+  background: #f1f5f9;
+  padding: 12px 16px;
+  text-align: left;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #64748b;
+  border-bottom: 2px solid #e2e8f0;
+}
+
+td {
+  padding: 16px;
+  border-bottom: 1px solid #f1f5f9;
+  font-size: 15px;
+}
+
+tr:hover td {
+  background: #f8fafc;
+}
+
+/* Action Buttons */
+.edit-btn {
+  background: var(--warning-color);
+  color: white;
+  padding: 6px 12px;
+  margin-right: 8px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+}
+
+.delete-btn {
+  background: var(--danger-color);
+  color: white;
+  padding: 6px 12px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
