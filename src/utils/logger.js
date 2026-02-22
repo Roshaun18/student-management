@@ -1,26 +1,5 @@
-import winston from 'winston';
-
-// Winston logger for console output
-const winstonLogger = winston.createLogger({
-  level: 'info',
-  format: winston.format.combine(
-    winston.format.timestamp({ format: 'YYYY-MM-DD HH:mm:ss' }),
-    winston.format.errors({ stack: true }),
-    winston.format.json()
-  ),
-  transports: [
-    new winston.transports.Console({
-      format: winston.format.combine(
-        winston.format.colorize(),
-        winston.format.printf(({ level, message, timestamp, ...meta }) => {
-          const { service, ...rest } = meta;
-          const metaStr = Object.keys(rest).length > 0 ? JSON.stringify(rest) : '';
-          return `${timestamp} [${level}] ${message} ${metaStr}`;
-        })
-      )
-    })
-  ]
-});
+// Browser-safe logger for frontend apps.
+// Note: Winston is Node-oriented and can break browser bundles.
 
 // Send logs to backend
 const sendLogToServer = async (level, message, data) => {
@@ -49,19 +28,19 @@ const sendLogToServer = async (level, message, data) => {
 
 const logger = {
   info: (message, data) => {
-    winstonLogger.info(message, data || '');
+    console.info('[INFO]', message, data || '');
     sendLogToServer('info', message, data);
   },
   error: (message, error) => {
-    winstonLogger.error(message, error || '');
+    console.error('[ERROR]', message, error || '');
     sendLogToServer('error', message, error);
   },
   warn: (message, data) => {
-    winstonLogger.warn(message, data || '');
+    console.warn('[WARN]', message, data || '');
     sendLogToServer('warn', message, data);
   },
   debug: (message, data) => {
-    winstonLogger.debug(message, data || '');
+    console.debug('[DEBUG]', message, data || '');
     sendLogToServer('debug', message, data);
   }
 };
